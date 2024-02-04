@@ -7,6 +7,7 @@ import { addTransactionalDataSource } from 'typeorm-transactional';
 
 import { DatabaseConfigModule } from 'src/database/database.module';
 import { DatabaseConfigService } from 'src/database/database.service';
+import { RepositoryModule } from 'src/repository/repository.module';
 
 @Module({
   imports: [
@@ -22,8 +23,9 @@ import { DatabaseConfigService } from 'src/database/database.service';
         return addTransactionalDataSource(new DataSource(options));
       },
     }),
-    AuthModule, UserModule],
+    AuthModule,
+    UserModule,
+    RepositoryModule,
+  ],
 })
 export class MainModule {}
-
-
